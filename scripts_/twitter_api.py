@@ -59,7 +59,7 @@ def fetch_filtered_tweets(api, keywords, unwanted_keywords, min_age_account):
     # Filtering tweets of spam words
     for tweet in tweets:
         if not any(unwanted_keyword.lower() in tweet.full_text.lower() for unwanted_keyword in unwanted_keywords):
-            filtered_tweets.append(tweet.full_text)
+            filtered_tweets.append(tweet)
     # Filtering tweets with account < 30
     age_filter = []
     for tweet in age_filter:
