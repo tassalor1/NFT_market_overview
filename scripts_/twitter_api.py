@@ -11,7 +11,7 @@ def main():
     api = authenticate_tweepy()
 
     account_username = "DegenerateNews"
-    keywords = "nft OR NFT OR BAYC OR opensea OR blur"
+    keywords = "nft OR NFT OR BAYC OR opensea OR blur OR azuki"
     unwanted_keywords = ['giveaway', 'Like', 'RT', 'Giveaways', 'follow', 'free mint']
     min_age_account = 30
 
