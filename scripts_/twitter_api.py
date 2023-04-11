@@ -22,6 +22,9 @@ def main():
 
     combined_tweets = user_tweets + filtered_tweets
     combined_tweets = combined_tweets[:100]
+
+    file_write(combined_tweets)
+
     print(f"user_tweets length: {len(user_tweets)}")
     print(f"filtered_tweets length: {len(filtered_tweets)}")
     print_tweets(combined_tweets)
@@ -94,8 +97,17 @@ def print_tweets(combined_tweets):
         print(tweet.full_text)
         print('-' * 80)
 
-def file_write():
 
+def file_write(combined_tweets):
+    with open('twitter_nft_timeline.csv', 'w', newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+
+        # Write the header row
+        writer.writerow(["Tweet ID", "Username", "User ID", "Tweet Date", "Text"])
+
+        # Write the tweet data
+        for tweet in combined_tweets:
+            writer.writerow([tweet.id_str, tweet.user.screen_name, tweet.user.id_str, tweet.created_at, tweet.full_text])
 
 
 if __name__ == "__main__":
