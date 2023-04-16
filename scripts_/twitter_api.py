@@ -13,7 +13,7 @@ def main():
 
     account_username = "DegenerateNews"
     keywords = "nft OR BAYC OR opensea OR blur OR azuki OR bored ape OR degods OR NFTs OR clone X OR NGMI " \
-               "pfp OR floor price OR JPGs OR jpg OR roadmap"
+               "pfp OR floor price OR JPGs OR jpg OR roadmap OR wagmi"
     unwanted_keywords = ['giveaway', 'Like', 'RT', 'Giveaways', 'follow', 'free mint']
     min_age_account = 30
 
