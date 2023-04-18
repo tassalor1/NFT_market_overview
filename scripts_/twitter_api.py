@@ -12,16 +12,17 @@ def main():
     api = authenticate_tweepy()
 
     account_username = "DegenerateNews"
-    keywords = "nft OR BAYC OR opensea OR blur OR azuki OR bored ape OR degods OR NFTs OR clone X OR NGMI " \
-               "pfp OR floor price OR JPGs OR jpg OR roadmap OR wagmi"
-    unwanted_keywords = ['giveaway', 'Like', 'RT', 'Giveaways', 'follow', 'free mint']
+    keywords = "nft OR BAYC OR opensea OR blur OR azuki OR bored ape OR degods OR NFTs OR clone X  OR" \
+               " floor price"
+    unwanted_keywords = ['giveaway', 'Like', 'RT', 'Giveaways', 'follow', 'free mint', 'trending',
+                         'Price Action Analysis']
     min_age_account = 30
 
     user_tweets = fetch_user_tweets(api, account_username)
     filtered_tweets = fetch_filtered_tweets(api, keywords, unwanted_keywords, min_age_account, account_username)
 
-    combined_tweets = user_tweets + filtered_tweets
-    combined_tweets = combined_tweets[:100]
+    combined_tweets = filtered_tweets
+    combined_tweets = combined_tweets[:600]
 
     file_write(combined_tweets)
 
@@ -49,10 +50,11 @@ def authenticate_tweepy():
 
 # Fetch tweets from the specified user's timeline and return a list of full tweet texts
 def fetch_user_tweets(api, account_username):
-    count = 100
-    total_tweets = 100
+    count = 300
+    total_tweets = 300
     user_tweets = []
-    for tweet in tweepy.Cursor(api.user_timeline,  count=count, screen_name=account_username, tweet_mode="extended").items(total_tweets):
+    for tweet in tweepy.Cursor(api.user_timeline,  count=count, screen_name=account_username, tweet_mode="extended"
+                               ).items(total_tweets):
         user_tweets.append(tweet)
     return user_tweets
 
@@ -60,16 +62,22 @@ def fetch_user_tweets(api, account_username):
 # Fetch tweets containing specific keywords and filter out tweets containing unwanted keywords
 def fetch_filtered_tweets(api, keywords, unwanted_keywords, min_age_account, account_username):
     count = 100
-    total_tweets = 100
+    total_tweets = 1000
     account_age = 30
     current_date = datetime.now(pytz.utc)
     tweets = []
     filtered_tweets = []
+    unique_tweet_texts = set()
 
     # Filtering tweets with only specific words
     for tweet in tweepy.Cursor(api.search_tweets, q=keywords, count=count, tweet_mode="extended", lang="en").items(
             total_tweets):
-        tweets.append(tweet)
+
+        # Check if rt and not a duplicate
+        if not tweet.full_text.lower().startswith("rt") and tweet.full_text not in unique_tweet_texts:
+            tweets.append(tweet)
+            unique_tweet_texts.add(tweet.full_text)
+
 
     print(f"tweets length after keyword filtering: {len(tweets)}")
 
