@@ -12,17 +12,16 @@ def main():
     api = authenticate_tweepy()
 
     account_username = "DegenerateNews"
-    keywords = "nft OR BAYC OR opensea OR blur OR azuki OR bored ape OR degods OR NFTs OR clone X  OR" \
-               " floor price "
+    keywords = "nft"
     unwanted_keywords = ['giveaway', 'Like', 'RT', 'Giveaways', 'follow', 'free mint', 'trending',
-                         'Price Action Analysis']
+                         'Price Action Analysi', 'Sold', 'win']
     min_age_account = 30
 
     user_tweets = fetch_user_tweets(api, account_username)
     filtered_tweets = fetch_filtered_tweets(api, keywords, unwanted_keywords, min_age_account, account_username)
 
     combined_tweets = filtered_tweets
-    combined_tweets = combined_tweets[:600]
+    combined_tweets = combined_tweets[:]
 
     file_write(combined_tweets)
 
@@ -61,8 +60,8 @@ def fetch_user_tweets(api, account_username):
 
 # Fetch tweets containing specific keywords and filter out tweets containing unwanted keywords
 def fetch_filtered_tweets(api, keywords, unwanted_keywords, min_age_account, account_username):
-    count = 100
-    total_tweets = 1000
+    count = 300
+    total_tweets = 10000
     account_age = 30
     current_date = datetime.now(pytz.utc)
     tweets = []
