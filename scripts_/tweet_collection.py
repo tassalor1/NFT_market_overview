@@ -5,7 +5,6 @@ import os
 import pytz
 import csv
 
-
 def main():
     load_environment_variables()
 
@@ -48,6 +47,7 @@ def authenticate_tweepy():
 
 
 # Fetch tweets from the specified user's timeline and return a list of full tweet texts
+# Redundant for now, till I find a good account that keep the integrity of the tweets
 def fetch_user_tweets(api, account_username):
     count = 300
     total_tweets = 300
@@ -61,7 +61,7 @@ def fetch_user_tweets(api, account_username):
 # Fetch tweets containing specific keywords and filter out tweets containing unwanted keywords
 def fetch_filtered_tweets(api, keywords, unwanted_keywords, min_age_account, account_username):
     count = 300
-    total_tweets = 10000
+    total_tweets = 100
     account_age = 30
     current_date = datetime.now(pytz.utc)
     tweets = []
