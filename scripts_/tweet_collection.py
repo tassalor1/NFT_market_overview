@@ -4,7 +4,18 @@ from datetime import datetime, timedelta
 import os
 import pytz
 import csv
+# Model Libaires
+import pandas as pd
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+import nltk
+import numpy as np
+import pickle
 
+"""
+#############################################################
+Twitter Script
+#############################################################
+"""
 def main():
     load_environment_variables()
 
@@ -26,7 +37,7 @@ def main():
 
     print(f"user_tweets length: {len(user_tweets)}")
     print(f"filtered_tweets length: {len(filtered_tweets)}")
-    print_tweets(combined_tweets)
+    # print_tweets(combined_tweets)
 
 
 # Load environment variables and set global variables for API keys and tokens
@@ -99,12 +110,12 @@ def fetch_filtered_tweets(api, keywords, unwanted_keywords, min_age_account, acc
 
 
 # Print fetched tweets
-def print_tweets(combined_tweets):
-    for tweet in combined_tweets:
-        print(tweet.full_text)
-        print('-' * 80)
+# def print_tweets(combined_tweets):
+#     for tweet in combined_tweets:
+#         print(tweet.full_text)
+#         print('-' * 80)
 
-
+# Write tweets to file
 def file_write(combined_tweets):
     with open('twitter_nft_timeline.csv', 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
@@ -116,6 +127,59 @@ def file_write(combined_tweets):
         for tweet in combined_tweets:
             writer.writerow([tweet.id_str, tweet.user.screen_name, tweet.user.id_str, tweet.created_at, tweet.full_text])
 
+
+"""
+#############################################################
+Model
+#############################################################
+"""
+# Read file to perform cleaning and sentiment analysis
+df = pd.read_csv("C:\\Users\\Connor\\Desktop\\Coding\\nft_market_a\\scripts_\\twitter_nft_timeline.csv")
+
+# Function to clean words up in data
+def process_text(tweet):
+    tweet_words = []
+    for word in tweet.split(' '):
+        if word.startswith('@') and len(word) > 1: # Converts their username to '@user'
+            word = '@user'
+        elif word.startswith('http'): # Converts website address to 'http'
+            word = "http"
+        tweet_words.append(word)
+    tweet_proc = " ".join(tweet_words)
+    return tweet_proc
+
+# Create new column
+df['processed_text'] = df['Text'].apply(process_text)
+
+# Load Model
+nltk.download('vader_lexicon') # Vader model
+
+sia = SentimentIntensityAnalyzer()
+
+text = " ".join(df['processed_text']) # Join all text toghether so it gives a score as one
+
+sentiment = sia.polarity_scores(text)
+
+"""
+The VADER Sentiment Analysis provides us with a compound score, which serves as a comprehensive measure of the
+text's sentiment. This compound score lies within a range of -1 to 1. Here, -1 signifies extremely negative sentiment,
+while 1 represents extremely positive sentiment. To interpret this continuous score in a more categorical form,
+we will construct a function. This function will assign each score to a corresponding sentiment
+category: 'negative', 'neutral', or 'positive', based on its value within the -1 to 1 range.
+"""
+
+
+# Function to find overall sentiment as compound score by itself doesnt mean much
+# I think having neutral around -0.05 to 0.05 is the best range for its value
+def overall_score(sentiment):
+    if sentiment >= 0.05:
+        return 'Positive'
+    elif sentiment <= -0.05:
+        return 'Negative'
+    else:
+        return 'Neutral'
+overall_sentiment = overall_score(sentiment['compound'])
+print(overall_sentiment)
 
 if __name__ == "__main__":
     main()
