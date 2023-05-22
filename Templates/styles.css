@@ -1,0 +1,72 @@
+
+    @font-face {
+      font-family: 'PixeloidSans';
+      src: url("\\static\\fonts\\blue-screen-font\\BlueScreenPersonalUseRegular-0W1M9.ttf") format('truetype');
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    body {
+  background-image: linear-gradient(#F0E3DA, #F0E3DA);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 40%;
+      min-width: 40%;
+      flex-wrap: wrap;
+    }
+    .page-title {
+      font-family: 'PixeloidSans', sans-serif;
+      position: absolute;
+      top: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 70px;
+      font-weight: normal;
+    }
+    .window {
+      width: 50%;
+      max-width: 250px;
+      height: 300px;
+      min-width: 250px;
+    }
+    .icon-container {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 130px;
+    }
+    .icon-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .icon-comp {
+      width: 32px;
+      height: 32px;
+      display: block;
+    }
+    .icon-text {
+      font-family: 'PixeloidSans', sans-serif;
+      margin-top: 5px;
+      font-size: 15px;
+    }
+    .face-icon {
+      width: 32px;
+      height: 32px;
+      display: block;
+    }
