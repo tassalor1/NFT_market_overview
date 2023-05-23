@@ -181,5 +181,9 @@ def overall_score(sentiment):
 overall_sentiment = overall_score(sentiment['compound'])
 print(overall_sentiment)
 
+with open('sentiment_model.pkl', 'wb') as file:
+    pickle.dump(sentiment, file)
+    print("file has been pickled")
+
 if __name__ == "__main__":
     main()
