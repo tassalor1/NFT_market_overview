@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 import pickle
 
-app = Flask(__name__, static_folder='C:\\Users\\Connor\\Desktop\\Coding\\nft_market_a\\Templates')
+app = Flask(__name__)
 
 @app.route('/')
 def home():
