@@ -4,32 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Digit Recognition</title>
-  <link rel="stylesheet" href="https://unpkg.com/98.css">
-    <style>
-     @font-face {
+  <link rel="stylesheet" href="https://unpkg.com/nes.css/css/nes.min.css">
+  <style>
+    @font-face {
       font-family: 'PixeloidSans';
       src: url("\\static\\fonts\\blue-screen-font\\BlueScreenPersonalUseRegular-0W1M9.ttf") format('truetype');
     }
     body {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start; /* align to the top of the page */
       min-height: 100vh;
       margin: 0;
+      background-image: linear-gradient(#F0E3DA, #F0E3DA);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow-y: auto;
     }
-    body {
-  background-image: linear-gradient(#F0E3DA, #F0E3DA);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
     .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 40%;
-      min-width: 40%;
-      flex-wrap: wrap;
+      width: 70%;
+      max-width: 1000px;
+      margin: 250px auto;
+      padding: 20px;
+      box-sizing: border-box;
     }
     .page-title {
       font-family: 'PixeloidSans', sans-serif;
@@ -47,8 +47,8 @@
       min-width: 250px;
     }
     .icon-container {
-      position: absolute;
-      bottom: 30px;
+      position: fixed;
+      bottom: 50px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -77,55 +77,46 @@
       height: 32px;
       display: block;
     }
+    .chart-container {
+      border-radius: 15px;
+      background-color: #fafafa;
+      box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+      width: 90%;
+      height: 300px;
+      margin: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
   </style>
 </head>
-<link rel="stylesheet" href="styles.css">
 <body>
   <h1 class="page-title">NFT Market Analysis</h1>
   <div class="container">
-    <div class="window" style="margin-right: 10px;">
-      <div class="title-bar">
-        <div class="title-bar-controls">
-          <button aria-label="Minimize"></button>
-          <button aria-label="Maximize"></button>
-          <button aria-label="Close"></button>
-        </div>
-      </div>
-      <div class="window-body">
-        <div id="drop-area" style="border: 2px dashed black; font-size: 24px; padding: 10px; text-align: center;
-        height: 240px; width: 208px;">
-          Drag and drop digits here
-        </div>
-      </div>
-    </div>
-    <div class="window" style="margin-left: 10px;">
-      <div class="title-bar">
-        <div class="title-bar-text">NFT Market Sentiment Analysis</div>
-        <div class="title-bar-controls">
-          <button aria-label="Minimize"></button>
-          <button aria-label="Maximize"></button>
-          <button aria-label="Close"></button>
-        </div>
-      </div>
-      <div class="window-body">
-      <div id="result" style="font-size: 24px; text-align: center; padding: 20px;">
-        Overall Sentiment: {{ sentiment }}
-    </div>
-     <div class="icon-container">
-     <!-- First icon and its text -->
-       <div class="icon-wrapper">
-        <a href="https://github.com/tassalor1/MNIST_Digit_Recognition" target="_blank">
-          <img src="/static/images/accessibility_contrast.png" alt="Icon" class="icon-comp">
+    <div class="icon-container">
+      <!-- Icon (face-icon) -->
+      <div class="icon-wrapper" style="margin: 0 auto;">
+        <a href="https://github.com/tassalor1/nft_market_overview" target="_blank">
+          <img src="/static/icons/msagent_file-1.png" alt="Face Icon" class="face-icon">
         </a>
-      <p class="icon-text">Github</p>
-     </div>
-     <!-- Second icon (face-icon) -->
-     <div class="icon-wrapper">
-        <a href="https://github.com/tassalor1" target="_blank">
-     <img src="/static/images/msagent-2.png" alt="Face Icon" class="face-icon">
-    </a>
-   <p class="icon-text">Creator</p>
+        <p class="icon-text">Creator</p>
+      </div>
+    </div>
+    <div class="chart-container">
+      <iframe src="https://dune.com/embeds/2343256/3836763" width="100%" height="100%" style="border:none;"></iframe>
+    </div>
+    <div class="chart-container">
+      <!-- Bar Chart 2 goes here -->
+    </div>
+    <div class="chart-container">
+      <!-- Bar Chart 3 goes here -->
+    </div>
+    <div class="chart-container">
+      <!-- Bar Chart 4 goes here -->
+    </div>
   </div>
-  </script>
 </body>
 </html>
+
