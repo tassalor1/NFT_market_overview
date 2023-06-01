@@ -10,10 +10,11 @@
       font-family: 'PixeloidSans';
       src: url("\\static\\fonts\\blue-screen-font\\BlueScreenPersonalUseRegular-0W1M9.ttf") format('truetype');
     }
-    body {
+     body {
       display: flex;
-      justify-content: center;
-      align-items: flex-start; /* align to the top of the page */
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
       min-height: 100vh;
       margin: 0;
       background-image: linear-gradient(#F0E3DA, #F0E3DA);
@@ -45,17 +46,6 @@
       max-width: 250px;
       height: 300px;
       min-width: 250px;
-    }
-    .icon-container {
-      position: fixed;
-      bottom: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      width: 130px;
     }
     .icon-wrapper {
       display: flex;
@@ -96,6 +86,20 @@
       font-family: 'PixeloidSans', sans-serif;
       font-size: 20px;
     }
+       .footer {
+    width: 100%;
+    position: relative;
+    bottom:0;
+    text-align: center;
+    }
+    .icon-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 130px;
+      margin: 0 auto; /* center the icon-container */
+    }
   </style>
 </head>
 <body>
@@ -103,6 +107,7 @@
   <div class="container">
      <p class="description">This website provides comprehensive analysis on the NFT market.
     Navigate through different visualisations to understand the dynamics of the NFT market.</p>
+    <div class="footer">
     <div class="icon-container">
       <!-- Icon (face-icon) -->
       <div class="icon-wrapper" style="margin: 0 auto;">
