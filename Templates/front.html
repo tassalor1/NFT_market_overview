@@ -10,7 +10,7 @@
       font-family: 'PixeloidSans';
       src: url("\\static\\fonts\\blue-screen-font\\BlueScreenPersonalUseRegular-0W1M9.ttf") format('truetype');
     }
-     body {
+    body {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -71,26 +71,26 @@
       border-radius: 15px;
       background-color: #fafafa;
       box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
-      width: 90%;
+      width: 80%;
       height: 300px;
-      margin: 45px;
+      margin: 15px;
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
       overflow: hidden;
     }
-     .description {
+    .description {
       text-align: center;
       padding: 20px;
       font-family: 'PixeloidSans', sans-serif;
       font-size: 20px;
     }
-       .footer {
-    width: 100%;
-    position: relative;
-    bottom:0;
-    text-align: center;
+    .footer {
+      width: 100%;
+      position: relative;
+      bottom:0;
+      text-align: center;
     }
     .icon-container {
       display: flex;
@@ -100,36 +100,70 @@
       width: 130px;
       margin: 0 auto; /* center the icon-container */
     }
+    .small-box {
+      border-radius: 15px;
+      background-color: #fafafa;
+      box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+      width: 200px; /* adjust if needed */
+      height: 200px;
+      margin-left: auto;
+      margin-right: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .chart-and-smallbox-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    .chart-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      width: 110%;
+      margin-left: 5%; /* added to push the charts to the left */
+    }
   </style>
 </head>
 <body>
   <h1 class="page-title">NFT Market Analysis</h1>
   <div class="container">
-     <p class="description">This website provides comprehensive analysis on the NFT market.
-    Navigate through different visualisations to understand the dynamics of the NFT market.</p>
+    <p class="description">This website provides comprehensive analysis on the NFT market. Navigate through different visualisations to understand the dynamics of the NFT market.</p>
     <div class="footer">
-    <div class="icon-container">
-      <!-- Icon (face-icon) -->
-      <div class="icon-wrapper" style="margin: 0 auto;">
-        <a href="https://github.com/tassalor1" target="_blank">
-          <img src="/static/icons/msagent_file-1.png" alt="Face Icon" class="face-icon">
-        </a>
-        <p class="icon-text">Creator</p>
+      <div class="icon-container">
+        <!-- Icon (face-icon) -->
+        <div class="icon-wrapper" style="margin: 0 auto;">
+          <a href="https://github.com/tassalor1" target="_blank">
+            <img src="/static/icons/msagent_file-1.png" alt="Face Icon" class="face-icon">
+          </a>
+          <p class="icon-text">Creator</p>
+        </div>
       </div>
-    </div>
-    <div class="chart-container">
-      <iframe src="https://dune.com/embeds/2343256/3836763" width="100%" height="100%" style="border:none;"></iframe>
-    </div>
-    <div class="chart-container">
-      <iframe src="https://dune.com/embeds/2344153/3838186" width="100%" height="100%" style="border:none;"></iframe>
-    </div>
-    <div class="chart-container">
-      <iframe src="https://dune.com/embeds/2343578/3837381" width="100%" height="100%" style="border:none;"></iframe>
-    </div>
-    <div class="chart-container">
-      <iframe src="https://dune.com/embeds/2343256/3836763" width="100%" height="100%" style="border:none;"></iframe>
+      <div class="chart-and-smallbox-container">
+        <div class="chart-grid">
+          <div class="chart-container">
+            <iframe src="https://dune.com/embeds/2343256/3836763" width="100%" height="100%" style="border:none;"></iframe>
+          </div>
+          <div class="chart-container">
+            <iframe src="https://dune.com/embeds/2344153/3838186" width="100%" height="100%" style="border:none;"></iframe>
+          </div>
+          <div class="chart-container">
+            <iframe src="https://dune.com/embeds/2343578/3837381" width="100%" height="100%" style="border:none;"></iframe>
+          </div>
+          <div class="chart-container">
+            <iframe src="https://dune.com/embeds/2343256/3836763" width="100%" height="100%" style="border:none;"></iframe>
+          </div>
+        </div>
+        <div class="small-box">
+          <!-- Content of the small box goes here -->
+        </div>
+      </div>
     </div>
   </div>
 </body>
 </html>
+
 
