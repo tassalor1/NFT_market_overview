@@ -12,144 +12,96 @@
     }
     body {
       display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
       min-height: 100vh;
       margin: 0;
+    }
+    body {
       background-image: url("/static/1719894.png");
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
     }
-    header {
-    text-align: center;
-    padding: 20px;
-    background-color: #f8f9fa;
-    }
-
-  /* styles for footer */
-  footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #f8f9fa;
-      position: fixed;
-      width: 1000%;
-      bottom: 0;
-      font-size: 10px;
-  }
     .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 40%;
-      min-width: 40%;
+      width: 80%;
       flex-wrap: wrap;
     }
-    .page-title {
-      font-family: 'PixeloidSans', sans-serif;
-      position: absolute;
-      top: 80px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 50px;
-      font-weight: normal;
-    }
-    .window {
-      width: 50%;
+    .chart-container {
+      width: 45%;
       max-width: 250px;
       height: 300px;
       min-width: 250px;
+      margin: 10px;
     }
-    .icon-container {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      width: 130px;
-    }
-    .icon-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .icon-comp {
-      width: 32px;
-      height: 32px;
-      display: block;
-    }
-    .icon-text {
+    .header {
+      font-size: 20px;
+      font-weight: 300;
       font-family: 'PixeloidSans', sans-serif;
-      margin-top: 5px;
-      font-size: 15px;
+      width: 100%;
+      position: fixed;
+      background: #f8f9fa;
+      text-align: center;
+      padding: 20px 0;
+      top: 0;
     }
-    .face-icon {
-      width: 32px;
-      height: 32px;
-      display: block;
+    .footer {
+      font-size: 20px;
+      font-weight: 300;
+      font-family: 'PixeloidSans', sans-serif;
+      width: 100%;
+      position: fixed;
+      background: #f8f9fa;
+      text-align: center;
+      padding: 20px 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   </style>
 </head>
 <body>
- <!-- Header Section -->
-  <header>
-    <h2>Digit Recognition</h2>
-    <!-- You can add more content here -->
-  </header>
-  <h1 class="page-title">Digit Recognition</h1>
+  <!-- Header -->
+  <div class="header">
+    <h1>Digit Recognition</h1>
+  </div>
   <div class="container">
-    <div class="window" style="margin-right: 10px;">
-      <div class="title-bar">
-        <div class="title-bar-text">Magic Wizard Stuff</div>
-        <div class="title-bar-controls">
-          <button aria-label="Minimize"></button>
-          <button aria-label="Maximize"></button>
-          <button aria-label="Close"></button>
-        </div>
-      </div>
-      <div class="window-body">
-        <div id="drop-area" style="border: 2px dashed black; font-size: 24px; padding: 10px; text-align: center;
-        height: 240px; width: 208px;">
-          Drag and drop digits here
-        </div>
-      </div>
+    <div class="chart-container">
+      <canvas id="chart1"></canvas>
     </div>
-    <div class="window" style="margin-left: 10px;">
-      <div class="title-bar">
-        <div class="title-bar-text">Magic Results</div>
-        <div class="title-bar-controls">
-          <button aria-label="Minimize"></button>
-          <button aria-label="Maximize"></button>
-          <button aria-label="Close"></button>
-        </div>
-      </div>
-      <div class="window-body">
-      <div id="result" style="font-size: 24px; text-align: center; padding: 20px;">
-        Predicted digit will appear here
+    <div class="chart-container">
+      <canvas id="chart2"></canvas>
     </div>
-     <div class="icon-container">
-     <!-- First icon and its text -->
-       <div class="icon-wrapper">
+    <div class="chart-container">
+      <canvas id="chart3"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="chart4"></canvas>
+    </div>
+  </div>
+  <!-- Footer -->
+  <div class="footer">
+    <div class="icon-container">
+      <!-- First icon and its text -->
+      <div class="icon-wrapper">
         <a href="https://github.com/tassalor1/MNIST_Digit_Recognition" target="_blank">
           <img src="/static/images/accessibility_contrast.png" alt="Icon" class="icon-comp">
         </a>
-      <p class="icon-text">Github</p>
-     </div>
-     <!-- Second icon (face-icon) -->
-     <div class="icon-wrapper">
+        <p class="icon-text">Github</p>
+      </div>
+      <!-- Second icon (face-icon) -->
+      <div class="icon-wrapper">
         <a href="https://github.com/tassalor1" target="_blank">
-     <img src="/static/images/msagent-2.png" alt="Face Icon" class="face-icon">
-    </a>
-   <p class="icon-text">Creator</p>
+          <img src="/static/images/msagent-2.png" alt="Face Icon" class="face-icon">
+        </a>
+        <p class="icon-text">Creator</p>
+      </div>
+    </div>
   </div>
-   <!-- Footer Section -->
-  <footer>
-    <h2>Copyright © 2023 Digit Recognition App</h2>
-    <!-- You can add more content here -->
-  </footer>
 </body>
 </html>
+
