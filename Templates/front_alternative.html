@@ -8,83 +8,98 @@
   <style>
     @font-face {
       font-family: 'PixeloidSans';
-      src: url("/static/fonts/PixeloidSans-JR6qo.ttf") format('truetype');
+      src: url("/static/fonts/blue-screen-font/BlueScreenPersonalUseRegular-0W1M9.ttf") format('truetype');
     }
     body {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
       min-height: 100vh;
       margin: 0;
-    }
-    body {
       background-image: url("/static/1719894.png");
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
+      overflow: hidden;
     }
     .container {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 80%;
+      justify-content: space-around;
       flex-wrap: wrap;
+      width: 80%;
+      max-width: 800px;
     }
-    .chart-container {
-      width: 45%;
-      max-width: 250px;
-      height: 300px;
-      min-width: 250px;
-      margin: 10px;
-    }
-    .header {
-      font-size: 20px;
-      font-weight: 300;
-      font-family: 'PixeloidSans', sans-serif;
+    .header, .footer {
       width: 100%;
-      position: fixed;
-      background: #f8f9fa;
-      text-align: center;
-      padding: 20px 0;
-      top: 0;
-    }
-    .footer {
-      font-size: 20px;
-      font-weight: 300;
-      font-family: 'PixeloidSans', sans-serif;
-      width: 100%;
-      position: fixed;
-      background: #f8f9fa;
-      text-align: center;
-      padding: 20px 0;
-      bottom: 0;
+      height: 100px;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      background-color: #f8f8f8;
+    }
+    .window {
+      flex: 1 1 calc(50% - 20px);
+      height: 200px;
+      margin: 10px;
+      box-sizing: border-box;
+    }
+    .icon-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 130px;
+    }
+    .icon-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .icon-comp {
+      width: 32px;
+      height: 32px;
+      display: block;
+    }
+    .icon-text {
+      font-family: 'PixeloidSans', sans-serif;
+      margin-top: 5px;
+      font-size: 15px;
+    }
+    .face-icon {
+      width: 32px;
+      height: 32px;
+      display: block;
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <div class="header">
+  <header class="header">
     <h1>Digit Recognition</h1>
-  </div>
+  </header>
   <div class="container">
-    <div class="chart-container">
-      <canvas id="chart1"></canvas>
+    <div class="window">
+      <div class="window-body">
+        <iframe src="https://dune.com/embeds/2343256/3836763" style="border:none; width: 100%; height: 110%; display: block;"></iframe>
+      </div>
     </div>
-    <div class="chart-container">
-      <canvas id="chart2"></canvas>
+    <div class="window">
+      <div class="window-body">
+        <!-- Contents of the second window -->
+      </div>
     </div>
-    <div class="chart-container">
-      <canvas id="chart3"></canvas>
+    <div class="window">
+      <div class="window-body">
+        <!-- Contents of the third window -->
+      </div>
     </div>
-    <div class="chart-container">
-      <canvas id="chart4"></canvas>
+    <div class="window">
+      <div class="window-body">
+        <!-- Contents of the fourth window -->
+      </div>
     </div>
   </div>
-  <!-- Footer -->
-  <div class="footer">
+  <footer class="footer">
     <div class="icon-container">
       <!-- First icon and its text -->
       <div class="icon-wrapper">
@@ -101,7 +116,8 @@
         <p class="icon-text">Creator</p>
       </div>
     </div>
-  </div>
+  </footer>
 </body>
 </html>
+
 
