@@ -27,8 +27,8 @@
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
-      width: 80%;
-      max-width: 800px;
+      width: 500%;
+      max-width: 900px;
     }
     .header, .footer {
       width: 100%;
@@ -40,9 +40,14 @@
     }
     .window {
       flex: 1 1 calc(50% - 20px);
-      height: 200px;
+      width: 400%;
+      height: 250px;
       margin: 10px;
       box-sizing: border-box;
+    }
+    .window-body {
+      width: 100%;
+      height: 100%;
     }
     .icon-container {
       display: flex;
@@ -80,22 +85,22 @@
   <div class="container">
     <div class="window">
       <div class="window-body">
-        <iframe src="https://dune.com/embeds/2343256/3836763" style="border:none; width: 100%; height: 110%; display: block;"></iframe>
+        <iframe src="https://dune.com/embeds/2343256/3836763" width="100%" height="100%" style="border:none;"></iframe>
       </div>
     </div>
     <div class="window">
       <div class="window-body">
-        <!-- Contents of the second window -->
+        <iframe src="https://dune.com/embeds/2344153/3838186" width="100%" height="100%" style="border:none;"></iframe>
       </div>
     </div>
     <div class="window">
       <div class="window-body">
-        <!-- Contents of the third window -->
+        <iframe src="https://dune.com/embeds/2343578/3837381" width="100%" height="100%" style="border:none;"></iframe>
       </div>
     </div>
     <div class="window">
       <div class="window-body">
-        <!-- Contents of the fourth window -->
+        <iframe src="https://dune.com/embeds/2343256/3836763" width="100%" height="100%" style="border:none;"></iframe>
       </div>
     </div>
   </div>
@@ -119,5 +124,6 @@
   </footer>
 </body>
 </html>
+
 
 
