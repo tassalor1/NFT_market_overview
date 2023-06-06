@@ -27,20 +27,32 @@
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
-      width: 500%;
-      max-width: 900px;
+      width: 100%;
+      max-width: 1000px;
     }
-    .header, .footer {
+    .header {
       width: 100%;
       height: 100px;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #f8f8f8;
+    }
+    .footer {
+      width: 70%;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .header-content, .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
     }
     .window {
       flex: 1 1 calc(50% - 20px);
-      width: 400%;
+      width: 100%;
       height: 250px;
       margin: 10px;
       box-sizing: border-box;
@@ -76,13 +88,31 @@
       height: 32px;
       display: block;
     }
+    .description {
+      font-size: 22px;
+      line-height: 1.5;
+      font-family: 'PixeloidSans', sans-serif;
+      justify-content: center;
+    }
+    .title-bar-text {
+      font-family: 'PixeloidSans', sans-serif;
+      text-align: center; /* Center the text */
+      font-size: 28px; /* Make it larger */
+    }
+
   </style>
 </head>
 <body>
   <header class="header">
-    <h1>Digit Recognition</h1>
+    <div class="header-content window">
+      <div class="window-body title-bar">
+        <div class="title-bar-text">Digit Recognition</div>
+      </div>
+    </div>
   </header>
   <div class="container">
+    <p class="description">A comprehensive analysis on the NFT market.
+      Navigate through different visualisations to understand the dynamics of the NFT market.</p>
     <div class="window">
       <div class="window-body">
         <iframe src="https://dune.com/embeds/2343256/3836763" width="100%" height="100%" style="border:none;"></iframe>
@@ -105,7 +135,7 @@
     </div>
   </div>
   <footer class="footer">
-    <div class="icon-container">
+    <div class="footer-content window icon-container window-body">
       <!-- First icon and its text -->
       <div class="icon-wrapper">
         <a href="https://github.com/tassalor1/MNIST_Digit_Recognition" target="_blank">
@@ -124,6 +154,8 @@
   </footer>
 </body>
 </html>
+
+
 
 
 
