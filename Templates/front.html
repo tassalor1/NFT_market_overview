@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NFT Market Analysis</title>
+  <style>
+    body {
+      background-color: #28282B;
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 100vh;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 90%;
+      margin: 1em 0;
+    }
+    .header, .footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      height: 70px;
+    }
+    .header-content, .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .window {
+      border: 2px dotted white;
+      flex-basis: 40%;
+      margin: 1em;
+      height: 250px;
+      background-color: rgba(255, 255, 255, 0.1);
+      width: 200px;
+    }
+    .window-body {
+      width: 100%;
+      height: 100%;
+    }
+    .title-bar-text {
+      text-align: center;
+      width: 100%;
+      font-size: 2em;
+    }
+    .description {
+      text-align: center;
+      margin: 1em;
+    }
+    #sentiment-box {
+      width: 250px;
+      height: 100px;
+      border: 2px dashed white;
+      margin: 1em 0;
+      align-items: center;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="window-body title-bar">
+        <div class="title-bar-text">NFT Market Analysis</div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div id="sentiment-box">
+      <!-- Sentiment data goes here -->
+    </div>
+  </div>
+  <div class="container">
+    <p class="description">A comprehensive analysis of the NFT market. Navigate through different visualisations
+       to understand the dynamics of the NFT market.</p>
+    <div class="window">
+      <div class="window-body">
+        <iframe src="https://dune.com/embeds/2343256/3836763"></iframe>
+      </div>
+    </div>
+    <div class="window">
+      <div class="window-body">
+        <iframe src="https://dune.com/embeds/2344153/3838186"></iframe>
+      </div>
+    </div>
+    <div class="window">
+      <div class="window-body">
+        <iframe src="https://dune.com/embeds/2343578/3837381"></iframe>
+      </div>
+    </div>
+    <div class="window">
+      <div class="window-body">
+        <iframe src="https://dune.com/embeds/2343256/3836763"></iframe>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-content">
+      <!-- Place your icon links here -->
+    </div>
+  </footer>
+</body>
+</html>
