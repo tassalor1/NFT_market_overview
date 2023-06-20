@@ -96,7 +96,7 @@ def main():
     directory = 'C:\\Users\\Connor\\Desktop\\Coding\\nft_market_a'
 
     # Save the sentiment model in the specified directory
-    file_path = os.path.join(directory, 'sentiment_model.pkl')
+    file_path = os.path.join(directory, 'twitter_sentiment_model.pkl')
     with open(file_path, 'wb') as file:
         pickle.dump(sentiment, file)
         print("file has been pickled")
