@@ -1,12 +1,14 @@
 import os
 from dotenv import load_dotenv
 import praw
+import csv
 
 def main():
     reddit = load_enviroment()
     unwanted_keywords = ['giveaway', 'Like', 'RT', 'Giveaways', 'follow', 'free mint', 'trending', 'Sold', 'win']
-    fetch_filtered = fetch_filtered_posts(reddit, unwanted_keywords)
-    print(fetch_filtered)
+    filtered_posts_and_comments  = fetch_filtered_posts(reddit, unwanted_keywords)
+    file_write(filtered_posts_and_comments)
+    print(f"filtered_posts_and_comments: {len(filtered_posts_and_comments)}")
 
 def load_enviroment():
     load_dotenv()
@@ -35,6 +37,26 @@ def fetch_filtered_posts(reddit, unwanted_keywords):
 
     return results
 
+def file_write(filtered_posts_and_comments):
+    with open('reddit_nft_posts_comments', 'w', newline='', encoding='utf-8') as f:
 
+        writer = csv.writer(f)
+
+        # Header row
+        writer.writerow(["Post Title", "Post Content", "Post ID", "Subreddit", "Author", "Post Date", "Comment", "Comment ID", "Comment Date"])
+
+        for post_id, post_details in filtered_posts_and_comments.items():
+            for comment in post_details['comments']:
+                writer.writerow([
+                    post_id,
+                    post_details['post_title'],
+                    post_details['post_content'],
+                    post_details['subreddit'],
+                    post_details['author'],
+                    post_details['post_date'],
+                    comment['comment_id'],
+                    comment['comment_content'],
+                    comment['comment_date'],
+                ])
 if __name__ == "__main__":
     main()
