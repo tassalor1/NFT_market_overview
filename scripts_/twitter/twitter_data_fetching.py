@@ -39,7 +39,7 @@ def fetch_filtered_tweets(api, keywords, unwanted_keywords, min_age_account, acc
     return age_filter
 
 def write_to_csv(combined_tweets):
-    with open('raw_twitter_nft_timeline.csv', 'w', newline='', encoding='utf-8') as f:
+    with open('raw_twitter_nft_data.csv', 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         writer.writerow(["Tweet ID", "Username", "User ID", "Tweet Date", "Text"])
         for tweet in combined_tweets:
