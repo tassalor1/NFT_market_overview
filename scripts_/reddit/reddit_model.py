@@ -13,6 +13,7 @@ def save_sentiment(sentiment, file_path):
         pickle.dump(sentiment, file)
     print("Sentiment has been pickled")
 
+
 def overall_score(sentiment):
     if sentiment >= 0.05:
         return 'Positive'
@@ -27,6 +28,6 @@ if __name__ == "__main__":
     text = " ".join(df['processed_text'])
     sentiment = sia.polarity_scores(text)
     overall_sentiment = overall_score(sentiment['compound'])
-    directory = 'C:\\Users\\Connor\\Desktop\\Coding\\nft_market_a'
+    directory = 'C:\\Users\\Connor\\Desktop\\Coding\\nft_market_a\\models'
     file_path = os.path.join(directory, 'reddit_sentiment_model.pkl')
     save_sentiment(sentiment, file_path)
