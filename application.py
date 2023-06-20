@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     # Load the sentiment score from the pickle file
-    with open('sentiment_model.pkl', 'rb') as file:
+    with open('twitter_sentiment_model.pkl', 'rb') as file:
         sentiment = pickle.load(file)
 
     # Get the overall sentiment score
