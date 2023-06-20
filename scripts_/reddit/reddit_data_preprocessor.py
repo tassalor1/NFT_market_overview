@@ -14,4 +14,4 @@ def process_text(reddit_content):
 if __name__ == "__main__":
     df = pd.read_csv("raw_reddit_nft_data.csv")
     df['processed_text'] = df['Content'].apply(process_text)
-    df.to_csv('processed_reddit_nft_data.csv', index=False)
+    df.to_csv('reddit_nft_data.csv', index=False)

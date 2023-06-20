@@ -22,7 +22,7 @@ def overall_score(sentiment):
         return 'Neutral'
 
 if __name__ == "__main__":
-    df = pd.read_csv("processed_reddit_nft_data.csv")
+    df = pd.read_csv("reddit_nft_data.csv")
     sia = load_model()
     text = " ".join(df['processed_text'])
     sentiment = sia.polarity_scores(text)
