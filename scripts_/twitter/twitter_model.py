@@ -29,6 +29,7 @@ if __name__ == "__main__":
     model = load_model()
     sentiment = get_sentiment(model, text)
     overall_sentiment = overall_score(sentiment['compound'])
+    print(f" Twitter sentiment is: {overall_sentiment}")
     directory = 'C:\\Users\\Connor\\Desktop\\Coding\\nft_market_a'
     file_path = os.path.join(directory, 'twitter_sentiment_model.pkl')
     save_sentiment(sentiment, file_path)
