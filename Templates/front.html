@@ -19,7 +19,7 @@
     .container {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center; /* Center the charts */
+      justify-content: center;
       width: 90%;
       margin: 1em 0;
     }
@@ -38,9 +38,9 @@
     }
     .window {
       border: 2px dotted white;
-      flex-basis: 22%; /* Adjust the width of each chart */
+      flex-basis: 40%;
       margin: 1em;
-      height: 200px; /* Adjust the height of each chart */
+      height: 250px;
       background-color: rgba(255, 255, 255, 0.1);
       width: 200px;
     }
@@ -58,26 +58,11 @@
       margin: 1em;
     }
     #sentiment-box {
-      width: 10%; /* Set the width to 10% */
-      height: 100px; /* Set the height to 100px */
+      width: 250px;
+      height: 100px;
       border: 2px dashed white;
-      margin-right: 1em; /* Adjust margin to place on the left */
-      display: flex;
-      flex-direction: column;
+      margin: 1em 0;
       align-items: center;
-      justify-content: center;
-    }
-    .input-title {
-      font-size: 0.8em;
-      margin-bottom: 0.5em;
-    }
-    .input-field {
-      width: 80%;
-      height: 30px;
-      padding: 0.5em;
-      border: 1px solid white;
-      background-color: rgba(255, 255, 255, 0.2);
-      color: white;
     }
     iframe {
       border: none;
@@ -96,13 +81,12 @@
   </header>
   <div class="container">
     <div id="sentiment-box">
-      <div class="input-title">Enter a value:</div>
-      <input type="text" class="input-field">
+      <div class="sentiment-text">{{ sentiment }}</div>
     </div>
-    <p class="description">A comprehensive analysis of the NFT market. Navigate through different visualizations
-       to understand the dynamics of the NFT market.</p>
   </div>
   <div class="container">
+    <p class="description">A comprehensive analysis of the NFT market. Navigate through different visualisations
+       to understand the dynamics of the NFT market.</p>
     <div class="window">
       <div class="window-body">
         <iframe src="https://dune.com/embeds/2343256/3836763"></iframe>
@@ -131,4 +115,3 @@
   </footer>
 </body>
 </html>
-
