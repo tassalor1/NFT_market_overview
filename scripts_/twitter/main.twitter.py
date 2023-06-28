@@ -7,4 +7,4 @@ if __name__ == "__main__":
     scripts = ["twitter_data_fetching.py", "twitter_data_preprocessor.py", "twitter_model.py"]
     for script in scripts:
         run_script(script)
-        print("Script succesfully ran")
+    print("Script succesfully ran")
