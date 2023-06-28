@@ -1,5 +1,6 @@
 import os
 
+# Run Scripts
 def run_script(script_path):
     os.system(f"python {script_path}")
 

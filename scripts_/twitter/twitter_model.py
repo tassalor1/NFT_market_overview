@@ -24,12 +24,12 @@ def overall_score(sentiment):
         return 'Neutral'
 
 if __name__ == "__main__":
-    df = pd.read_csv('twitter_nft_data.csv')
-    text = " ".join(df['processed_text'])
+    df = pd.read_csv('twitter_nft_data.csv') # Read csv data
+    text = " ".join(df['processed_text']) # Join data
     model = load_model()
-    sentiment = get_sentiment(model, text)
-    overall_sentiment = overall_score(sentiment['compound'])
-    print(f" Twitter sentiment is: {overall_sentiment}")
+    sentiment = get_sentiment(model, text) # Load model
+    overall_sentiment = overall_score(sentiment['compound']) # Final model output
+    print(f"Twitter sentiment is: {overall_sentiment}")
     directory = 'C:\\Users\\Connor\\Desktop\\Coding\\nft_market_a'
     file_path = os.path.join(directory, 'twitter_sentiment_model.pkl')
     save_sentiment(sentiment, file_path)

@@ -1,5 +1,6 @@
 import pandas as pd
 
+# Clean text for the model
 def process_text(reddit_content):
     reddit_words = []
     for word in reddit_content.split(' '):

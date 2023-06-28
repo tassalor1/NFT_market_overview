@@ -13,7 +13,7 @@ def save_sentiment(sentiment, file_path):
         pickle.dump(sentiment, file)
 
 
-
+# Checks what the sentiment from the thresholds
 def overall_score(sentiment):
     if sentiment >= 0.05:
         return 'Positive'
@@ -23,12 +23,12 @@ def overall_score(sentiment):
         return 'Neutral'
 
 if __name__ == "__main__":
-    df = pd.read_csv("reddit_nft_data.csv")
-    sia = load_model()
-    text = " ".join(df['processed_text'])
-    sentiment = sia.polarity_scores(text)
-    overall_sentiment = overall_score(sentiment['compound'])
-    print(f" Reddit sentiment is: {overall_sentiment}")
+    df = pd.read_csv("reddit_nft_data.csv") # Read csv data
+    sia = load_model() # Load model
+    text = " ".join(df['processed_text']) # Join text for model
+    sentiment = sia.polarity_scores(text)  # Model
+    overall_sentiment = overall_score(sentiment['compound']) # Final Score
+    print(f"Reddit sentiment is: {overall_sentiment}")
     directory = 'C:\\Users\\Connor\\Desktop\\Coding\\nft_market_a\\models'
     file_path = os.path.join(directory, 'reddit_sentiment_model.pkl')
     save_sentiment(sentiment, file_path)

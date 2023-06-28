@@ -14,6 +14,7 @@ def load_enviroment():
     auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token, access_token_secret)
     return tweepy.API(auth, wait_on_rate_limit=True)
 
+# Filtering tweets
 def fetch_filtered_tweets(api, keywords, unwanted_keywords, min_age_account, account_username):
     count = 300
     total_tweets = 2000
@@ -21,6 +22,7 @@ def fetch_filtered_tweets(api, keywords, unwanted_keywords, min_age_account, acc
     tweets = []
     filtered_tweets = []
     unique_tweet_texts = set()
+
 
     for tweet in tweepy.Cursor(api.search_tweets, q=keywords, count=count, tweet_mode="extended", lang="en").items(total_tweets):
         if not tweet.full_text.lower().startswith("rt") and tweet.full_text not in unique_tweet_texts:
