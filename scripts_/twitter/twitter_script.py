@@ -1,21 +1,3 @@
-import tweepy
-from dotenv import load_dotenv
-from datetime import datetime, timedelta
-import os
-import pytz
-import csv
-# Model Libaires
-import pandas as pd
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
-import nltk
-import numpy as np
-import pickle
-
-"""
-#############################################################
-Twitter Script
-#############################################################
-"""
 def main():
     load_environment_variables()
 
