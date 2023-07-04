@@ -27,7 +27,7 @@ def main():
        #############################################################
        """
     # Read file to perform cleaning and sentiment analysis
-    df = pd.read_csv("C:\\Users\\Connor\\Desktop\\Coding\\nft_market_a\\scripts_\\reddit_nft_data.csv")
+    df = pd.read_csv("C:\\Users\\Connor\\Desktop\\Coding\\nft_market_a\\data\\reddit_nft_data.csv")
 
     # Function to clean words up in data
     def process_text(reddit_content):
@@ -74,10 +74,10 @@ def main():
     overall_sentiment = overall_score(sentiment['compound'])
     print(overall_sentiment)
 
-    directory = 'C:\\Users\\Connor\\Desktop\\Coding\\nft_market_a'
+    directory = 'C:\\Users\\Connor\\Desktop\\Coding\\nft_market_a\\data'
 
     # Save the sentiment model in the specified directory
-    file_path = os.path.join(directory, 'reddit_sentiment_model.pkl')
+    file_path = os.path.join(directory, 'reddit_sentiment_model1.pkl')
     with open(file_path, 'wb') as file:
         pickle.dump(sentiment, file)
         print("file has been pickled")
@@ -112,7 +112,8 @@ def fetch_filtered_posts(reddit, unwanted_keywords):
     return results
 
 def write_to_csv(filtered_posts_and_comments):
-    with open('reddit_nft_data.csv', 'w', newline='', encoding='utf-8') as f:
+    with open('C:\\Users\\Connor\\Desktop\\Coding\\nft_market_a\\data\\reddit_nft_data.csv', 'w',
+              newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
 
         # Write the header row
