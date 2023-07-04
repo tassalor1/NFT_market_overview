@@ -1,3 +1,14 @@
+import os
+import pandas as pd
+import nltk
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+import pickle
+import time
+from dotenv import load_dotenv
+import praw
+import csv
+
+
 def main():
 
     start_time = time.time() # Start timer

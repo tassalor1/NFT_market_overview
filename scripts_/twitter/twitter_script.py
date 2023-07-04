@@ -1,3 +1,16 @@
+import os
+import pandas as pd
+import nltk
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+import pickle
+import time
+import datetime
+import pytz
+from dotenv import load_dotenv
+import praw
+import csv
+import tweepy
+
 def main():
     load_environment_variables()
 
@@ -118,7 +131,7 @@ def fetch_filtered_tweets(api, keywords, unwanted_keywords, min_age_account, acc
     count = 300
     total_tweets = 2000
     account_age = 30
-    current_date = datetime.now(pytz.utc)
+    current_date = datetime.datetime.now(pytz.utc)
     tweets = []
     filtered_tweets = []
     unique_tweet_texts = set()
@@ -145,7 +158,7 @@ def fetch_filtered_tweets(api, keywords, unwanted_keywords, min_age_account, acc
     # Filtering tweets with account age < 30
     age_filter = []
     for tweet in filtered_tweets:
-        if (current_date - tweet.user.created_at) >= timedelta(days=min_age_account):
+        if (current_date - tweet.user.created_at) >= datetime.timedelta(days=min_age_account):
             age_filter.append(tweet)
 
     print(f"age_filter length after account age filtering: {len(age_filter)}")
@@ -153,7 +166,7 @@ def fetch_filtered_tweets(api, keywords, unwanted_keywords, min_age_account, acc
     return age_filter
 
 def file_write(combined_tweets):
-    with open('twitter_nft_timeline.csv', 'w', newline='', encoding='utf-8') as f:
+    with open('C:\\Users\\Connor\\Desktop\\Coding\\nft_market_a\\data\\twitter_nft_timeline.csv', 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
 
         # Write the header row
