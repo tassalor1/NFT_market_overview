@@ -19,7 +19,7 @@ def main():
     account_username = "DegenerateNews"
     keywords = "nft"
     unwanted_keywords = ['giveaway', 'Like', 'RT', 'Giveaways', 'follow', 'free mint', 'trending',
-                         'Price Action Analysi', 'Sold', 'win']
+                         'Price Action Analysis', 'Sold', 'win']
     min_age_account = 30
 
     user_tweets = fetch_user_tweets(api, account_username)
@@ -40,7 +40,7 @@ def main():
     #############################################################
     """
     # Read file to perform cleaning and sentiment analysis
-    df = pd.read_csv("C:\\Users\\Connor\\Desktop\\Coding\\nft_market_a\\data\\twitter_nft_data.csv")
+    df = pd.read_csv("C:\\Users\\Connor\\Desktop\\Coding\\nft_market_a\\twitter_nft_data.csv")
 
     # Function to clean words up in data
     def process_text(tweet):
@@ -61,6 +61,7 @@ def main():
     nltk.download('vader_lexicon')  # Vader model
 
     sia = SentimentIntensityAnalyzer()
+
 
     text = " ".join(df['processed_text'])  # Join all text toghether so it gives a score as one
 
@@ -105,12 +106,14 @@ def load_environment_variables():
     consumer_secret = os.getenv("CONSUMER_SECRET")
     access_token = os.getenv("ACCESS_TOKEN")
     access_token_secret = os.getenv("ACCESS_TOKEN_SECRET")
+    print('API keys loaded')
 
 
 # Authenticate tweepy with the API keys and tokens and return the API object
 # Waits till rate limit is refereshed
 def authenticate_tweepy():
     auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token, access_token_secret)
+    print('Tweepy Authenticated')
     return tweepy.API(auth, wait_on_rate_limit=True)
 
 
@@ -123,6 +126,7 @@ def fetch_user_tweets(api, account_username):
     for tweet in tweepy.Cursor(api.user_timeline,  count=count, screen_name=account_username, tweet_mode="extended"
                                ).items(total_tweets):
         user_tweets.append(tweet)
+    print('Tweets Fetched')
     return user_tweets
 
 
@@ -166,7 +170,7 @@ def fetch_filtered_tweets(api, keywords, unwanted_keywords, min_age_account, acc
     return age_filter
 
 def file_write(combined_tweets):
-    with open('C:\\Users\\Connor\\Desktop\\Coding\\nft_market_a\\data\\twitter_nft_data.csv', 'w', newline='', encoding='utf-8') as f:
+    with open('C:\\Users\\Connor\\Desktop\\Coding\\nft_market_a\\twitter_nft_data.csv', 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
 
         # Write the header row
@@ -175,6 +179,7 @@ def file_write(combined_tweets):
         # Write the tweet data
         for tweet in combined_tweets:
             writer.writerow([tweet.id_str, tweet.user.screen_name, tweet.user.id_str, tweet.created_at, tweet.full_text])
+    print('CSV wrote')
 
 
 if __name__ == "__main__":
